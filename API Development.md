@@ -4,7 +4,8 @@
 
 По умолчанию в проекте нет этих функций, вам нужно зарегистрировать их.
 Provider
-Сначала зарегистрируйте `ApiProvider` в вашем проекте путем добавления service provider в ваш список `PROVIDERS`:
+Сначала зарегистрируйте `ApiProvider` в вашем проекте путем добавления 
+`service provider` в ваш список `PROVIDERS`:
 
 ```py
 from masonite.api.providers import ApiProvider
@@ -48,7 +49,9 @@ class User(Model, AuthenticatesTokens):
 
 Это позволит модели сохранять токены в таблице. 
 
-После этого добавьте столбец в таблицу `users` для сохранения токена. Здесь мы назвали его `api_token`, но это настраивается путем добавления атрибута `__TOKEN_COLUMN__` в модель. Файл миграции должен выглядеть следующим образом:
+После этого добавьте столбец в таблицу `users` для сохранения токена. Здесь 
+мы назвали его `api_token`, но он настраивается путем добавления атрибута 
+`__TOKEN_COLUMN__` в модель. Файл миграции должен выглядеть следующим образом:
 
 ```py
 with self.schema.table("users") as table:
@@ -208,8 +211,8 @@ Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJleHBpcmVzIjpudWxsL
 
 ## Загрузка пользователей (Loading Users)
 
-Как только мы сохранили активный `api_token` в таблицу, мы получили возможность извлечь пользователя используя `LoadUserMiddleware` и новый стек `guard`. 
-Сначала добавьте ключ `guard` и `middleware GuardMiddleware stack, затем и добавьте LoadUserMiddleware в api:
+Как только мы сохранили активный `api_token` в таблицу, мы получили возможность извлечь пользователя используя LoadUserMiddleware и новый стек guard. 
+Создайте ключ `guard`, значением будет список с `GuardMiddleware`. Добавьте `LoadUserMiddleware` в список `api`:
 
 ```py
 ##.. 
