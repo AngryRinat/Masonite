@@ -33,11 +33,11 @@ def register_routes(self):
     self.application.bind("routes.api.location", "routes/api")
 ```
 
-Любые маршруты внутри этого файла будут сгруппированы внутри стека api middleware.
+Любые маршруты внутри этого файла будут сгруппированы внутри стека `api middleware`.
 
 ## Model and Migrations (Модели и миграции)
 
-Теперь нужно выбрать модель, которая отвечает за аутентификацию. Обычно это ваша модель User. Вы должны наследовать класс AuthenticatesTokens в этой модели:
+Теперь нужно выбрать модель, которая отвечает за аутентификацию. Обычно это ваша модель `User`. Вы должны наследовать класс `AuthenticatesTokens` в этой модели:
 
 ```py
 from masoniteorm.models import Model
@@ -225,7 +225,7 @@ Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJleHBpcmVzIjpudWxsL
 ],
 ```
 
-Наконец, в вашем маршруте или группе маршрутов вы можете указать guard middleware и указать guard name:
+Наконец, в вашем маршруте или группе маршрутов вы можете указать `guard middleware` и указать `guard name`:
 
 ```py
 # api.py
